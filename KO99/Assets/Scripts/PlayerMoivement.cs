@@ -13,12 +13,13 @@ public class PlayerMoivement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        InputKey = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        InputKey = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         rb.velocity = InputKey * moveSpeed;
     }
 }
