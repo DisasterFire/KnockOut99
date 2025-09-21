@@ -97,3 +97,8 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+/KO99/Library
+/KO99/Temp
+/KO99/UserSettings
+/KO99/Assets/Settings/HDRPDefaultResources
+/KO99/Assets/Settings
