@@ -11,6 +11,7 @@ public class PlayerMoivement : MonoBehaviour
     public Vector3 InputKey;
     public float moveSpeed = 10;
     public bool facingRight = true;
+    public float punchCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,8 @@ public class PlayerMoivement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         tf = GetComponent<Transform>();
+
+        anim.SetBool("IsPunching", false);
     }
 
     // Update is called once per frame
@@ -55,6 +58,25 @@ public class PlayerMoivement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             anim.Play("Punch");
+            anim.SetBool("IsPunching", true);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                anim.SetBool("IsKicking", true);
+                Combo();
+            }
+        }
+    }
+
+    void Combo()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (anim.GetBool("IsPunching"))
+            {
+                anim.Play("Kick");
+                anim.SetBool("IsPunching", false);
+                anim.SetBool("IsKicking", false);
+            }
         }
     }
 }
